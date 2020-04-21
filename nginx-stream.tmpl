@@ -70,7 +70,7 @@ stream {
 	server {
 		listen {{ $external_port }};
 		{{ if $enable_ipv6 }}
-		listen [::]:{{ $external_port }} {{ $default_server }};
+		listen [::]:{{ $external_port }};
 		{{ end }}
 
 		proxy_pass {{ $upstream_name }}
