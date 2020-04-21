@@ -1,21 +1,6 @@
-
-
-  upstream db {
-    server mysql-1.example.com:3306;
-  }
-
-  server {
-    listen 3306;
-    proxy_pass db;
-  }
-}
-
------------------------------------------------------------
-
 {{ $CurrentContainer := where $ "ID" .Docker.CurrentContainerID | first }}
 
 stream {
-
 
 	{{ define "upstream" }}
 		{{ if .Address }}

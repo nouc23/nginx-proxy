@@ -12,7 +12,7 @@ RUN apt-get update \
 
 # Configure Nginx and apply fix for very long server names
 RUN mkdir /etc/nginx/root.conf.d
-# RUN echo "include /etc/nginx/root.conf.d/*.conf;"
+RUN echo "include /etc/nginx/root.conf.d/*.conf;" >> /etc/nginx/nginx.conf
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
  && sed -i 's/worker_processes  1/worker_processes  auto/' /etc/nginx/nginx.conf
 
